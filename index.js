@@ -2,7 +2,7 @@ const fs = require('fs');
 const SlackBot = require("slackbots");
 const channel = "general";
 const bot = new SlackBot({
-    token: "xoxb-1294607140501-1289250778870-rkg51mI90ZttdqDOdTczjoSa",
+    token: "xoxb-1294607140501-1289250778870-3q7aP1VAt6asqRvyDOZwIIbE",
     name: "lequihieu"
 });
 
@@ -79,7 +79,12 @@ function showThisWeek()
     const currentDay = objectData.current_day;
     var result = "";
     const max_right = Math.min(currentId + (4 - currentDay), listData.length - 1);
-
+    
+    if(currentId > max_right) 
+    {
+        bot.postMessageToChannel(channel, "Not scheduled, please add user to schedule")
+        return;
+    }
     for(let i = currentId; i <= max_right; i++) 
     {
         result = result + (i - currentId + currentDay + 2).toString() + ": "+ listData[i] + ". ";
@@ -111,7 +116,8 @@ function doneToday()
     
 }
 function notDoneToday()
-{
+{   
+    var result = "";
     var objectData = readData();
     const currentId = objectData.current_id;
 
