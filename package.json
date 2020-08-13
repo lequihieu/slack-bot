@@ -1,0 +1,14 @@
+{
+  "name": "slack-bot",
+  "version": "1.0.0",
+  "description": "\"first bot\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "author": "Hieu",
+  "license": "MIT",
+  "dependencies": {
+    "slackbots": "^1.2.0"
+  }
+}
